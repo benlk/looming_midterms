@@ -7,7 +7,6 @@ Particularly wanted:
 - new supplemental text on the countdown message in `message.sh`
 - suggestions for things to tweet on certain days: https://github.com/benlk/looming_midterms/issues/1
 
-
 ### Code Contribution Workflow:
 
 1.  [Fork this repo](https://help.github.com/articles/fork-a-repo)
@@ -22,3 +21,4 @@ Additionally, you can [create issues](https://github.com/benlk/looming_midterm/i
 
 - Use [markdown syntax](http://daringfireball.net/projects/markdown/syntax) for all documents
 - If your pull request changes a file's name or the location of a file within the repository, please check all other files in the repository for links to the former filename. (`git grep "old-filename-here.md"`)
+- Abide by [the code of conduct](./code_of_conduct.md)
