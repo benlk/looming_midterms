@@ -41,4 +41,7 @@ arr[19]='What can you do to help?'
 rand=$[ $RANDOM % ${#arr[*]} ]
 
 # Days until event from https://stackoverflow.com/questions/6282059/how-do-you-print-the-days-until-a-deadline-from-the-command-line#6282176
+# also, there's a difference between the BSD date(1) and the Linux date(1)
+# This does not work on OSX
+#    sigh
 echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterms. ""${arr[$rand]}"
