@@ -17,6 +17,7 @@
 
 # Contributions to this list are welcome.
 # Empty lines in this area are for randomness.
+# Escape "" and '' with \
 arr[0]='Will you run for office?'
 arr[1]=''
 arr[2]='⚑'
@@ -42,6 +43,10 @@ rand=$[ $RANDOM % ${#arr[*]} ]
 
 # Days until event from https://stackoverflow.com/questions/6282059/how-do-you-print-the-days-until-a-deadline-from-the-command-line#6282176
 # also, there's a difference between the BSD date(1) and the Linux date(1)
-# This does not work on OSX
-#    sigh
+# This does not work on OSX; all it does is this:
+#    usage: date [-jnu] [-d dst] [-r seconds] [-t west] [-v[+|-]val[ymwdHMS]] ... 
+#                [-f fmt date | [[[mm]dd]HH]MM[[cc]yy][.ss]] [+format]
+#                expr: syntax error
+#    days until the 2018 midterms.
+# So yeah, only cron this on a Linux machine
 echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterms. ""${arr[$rand]}"
