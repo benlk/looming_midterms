@@ -2,6 +2,11 @@
 
 I welcome contributions and suggestions to help improve this script.
 
+Particularly wanted:
+
+- new supplemental text on the countdown message in `message.sh`
+- suggestions for things to tweet on certain days: https://github.com/benlk/looming_midterms/issues/1
+
 
 ### Code Contribution Workflow:
 
