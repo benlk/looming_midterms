@@ -11,18 +11,9 @@ Twitter avatar is https://commons.wikimedia.org/wiki/File:Calendar_Noun_project_
 
 looming_midterms, this Twitter bot, is copyright 2017 and following by Ben Keith.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This software is licensed under the [Creative Commons Attribution Share-Alike license, version 4.0 International or later](https://creativecommons.org/licenses/by-sa/4.0/)
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Why the CC-BY-SA? Because I want a copyleft, and this is more text than it is software, so GPLv3 feels wrong.
 
 ## Contact
 
