@@ -25,9 +25,9 @@ arr[11]=''
 arr[12]=''
 arr[13]=''
 arr[14]=''
-arr[15]=''
-arr[16]=''
-arr[17]=''
+arr[15]='Have you checked your voter registration status? https://www.vote.org/'
+arr[16]='Are you registered to vote? https://www.vote.org/'
+arr[17]='You should research running for office: https://timetorun.org/'
 arr[18]='Do you know who is running?'
 arr[19]='What can you do to help?'
 
@@ -42,4 +42,4 @@ rand=$[ $RANDOM % ${#arr[*]} ]
 #                expr: syntax error
 #    days until the 2018 midterms.
 # So yeah, only cron this on a Linux machine
-echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterms. ""${arr[$rand]}"
+echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterm elections. ""${arr[$rand]}"
