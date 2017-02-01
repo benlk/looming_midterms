@@ -7,4 +7,5 @@
 
 # . in the cronjob is ~, but when you run this script by yourself, it's .
 # t needs the full path to the trc, not ~, although . works.
-~/looming_midterm/message.sh | xargs -I '{}' t update --profile=./looming_midterm/looming_midterm.trc '{}'
+cd ~/looming_midterm/
+./message.sh | xargs -I '{}' t update --profile=./looming_midterm.trc '{}'
