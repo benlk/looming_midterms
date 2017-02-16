@@ -6,7 +6,7 @@ Twitter avatar is https://commons.wikimedia.org/wiki/File:Calendar_Noun_project_
 
 0. Run Linux; this doesn't work with the BSD `date` command
 1. Install https://github.com/sferik/t and configure it.
-2. Add `( I need example command here )` to cron using `crontab -e`
+2. Add `the command in tweet-countdown.sh` to cron using `crontab -e`
 
 ## License
 
