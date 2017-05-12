@@ -42,4 +42,5 @@ rand=$[ $RANDOM % ${#arr[*]} ]
 #                expr: syntax error
 #    days until the 2018 midterms.
 # So yeah, only cron this on a Linux machine
-echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterm elections. ""${arr[$rand]}"
+echo $(expr '(' $(date -d 2018/11/6 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2018 midterm elections."
+echo $(expr '(' $(date -d 2017/8/21 +%s) - $(date +%s) + 86399 ')' / 86400) "days until the 2017 solar eclipse."
