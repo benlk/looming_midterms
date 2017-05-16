@@ -22,6 +22,6 @@ touch /tmp/looming_midterm.lock
 cd ~/looming_midterm/
 
 # using /usr/local/bin/t because this isn't working otherwise
-./message.sh | xargs -I '{}' /usr/local/bin/t update --profile=./looming_midterm.trc '{}'
+./message.sh | xargs -I {} /usr/local/bin/t update --profile=./looming_midterm.trc '{}'
 
 rm /tmp/looming_midterm.lock
