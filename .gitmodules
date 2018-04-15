@@ -1,0 +1,3 @@
+[submodule "election-calendar"]
+	path = election-calendar
+	url = git@github.com:democrats/election-calendar.git
