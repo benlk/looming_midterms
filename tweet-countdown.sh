@@ -22,6 +22,6 @@ touch /tmp/looming_midterm.lock
 cd ~/looming_midterm/
 
 # using /usr/local/bin/t because this isn't working otherwise
-countdown=$(./message.sh | xargs -0 -I {} /usr/local/bin/t update --profile=./looming_midterm.trc "{}")
+countdown=$( python3 ./message.py | xargs -0 -I {} /usr/local/bin/t update --profile=./looming_midterm.trc "{}")
 
 rm /tmp/looming_midterm.lock
