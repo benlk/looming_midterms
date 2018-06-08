@@ -71,7 +71,7 @@ def tweet_setup( argv ):
 
 def construct_reply( countdown_tweet ):
     mention = countdown_tweet['user']['screen_name']
-    message = '@' + mention + ' this is a reply to ' + countdown_tweet['id_str'] + ' and like that tweet, this is a test.'
+    message = '[SURVEY] What info do you want to see here? Voter-reg dates? Primaries? Anything from this list?: https://github.com/democrats/data/tree/master/election-calendar/2018'
     return message
 
 if __name__ == "__main__":
