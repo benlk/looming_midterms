@@ -11,21 +11,50 @@
 import datetime, getopt, yaml, sys
 from twython import Twython
 
+dry_run = False
+
 def main( argv ):
+    global dry_run
+
+    dry_run = maybe_dry_run( argv )
     countdown_message = countdown()
     twitter = tweet_setup( argv )
 
     # countdown tweet
-    countdown_tweet = twitter.update_status( status=countdown_message )
+    countdown_tweet = tweet( twitter, status=countdown_message )
 
-    reply_tweet = twitter.update_status( status=construct_reply( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+    # Survey tweet
+    reply_tweet = tweet( twitter, status=reply_survey( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
 
+    # is today a tuesday and is today a voting day?
+    #reply_tweet = tweet( twitter, status=reply_tuesday_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+
+def tweet( twitter, *args, **kwargs ):
+    """
+    A way of doing Twitter things with dry_run protections.
+    Arguments other than dry_run and twitter are passed to twitter.update_status
+    """
+    global dry_run
+    if dry_run == True:
+        print( 'dry_run tweet: ' + kwargs['status'] )
+        return 0
+    else:
+        return twitter.update_status( *args, **kwargs )
+
+def maybe_dry_run( argv ):
+    opts, args = getopt.getopt( argv, '', ['dry_run','profile='] )
+
+    for opt, arg in opts:
+        if opt == '--dry_run':
+            dry_run = True
+            print( 'Running dry; will not make API calls' )
+    return dry_run
 
 def countdown():
     today = datetime.date.today()
     dday = datetime.date( 2018, 11, 6 )
     difference = ( dday - today )
-    return "[test] {0} days until the 2018 midterm elections.".format( difference.days )
+    return "{0} days until the 2018 midterm elections.".format( difference.days )
 
 def tweet_setup( argv ):
     '''
@@ -33,10 +62,14 @@ def tweet_setup( argv ):
     '''
     config_file = ''
     config = {}
+    global dry_run
+
+    if dry_run == True:
+        return 0
 
     # https://www.tutorialspoint.com/python3/python_command_line_arguments.htm
     try:
-        opts, args = getopt.getopt( argv, '', ['profile='] )
+        opts, args = getopt.getopt( argv, '', ['dry_run','profile='] )
     except getopt.GetoptError:
         print( "something went wrong with message.py's tweeting function" )
         print( "try specifying a profile file from sferik/t:" )
@@ -69,9 +102,20 @@ def tweet_setup( argv ):
 
     return twitter
 
-def construct_reply( countdown_tweet ):
-    mention = countdown_tweet['user']['screen_name']
+def reply_survey( previous_tweet ):
+    mention = previous_tweet['user']['screen_name']
     message = '[SURVEY] What info do you want to see here? Voter-reg dates? Primaries? Anything from this list?: https://github.com/democrats/data/tree/master/election-calendar/2018'
+    return message
+
+def reply_tuesday_voting( previous_tweet ):
+    """
+    This should figure out if today is a voting day, and alert if it is.
+
+    This will involve:
+    - looking up the stuff in the election calendar
+    - getting a list of things today, and t
+    """
+    message = ''
     return message
 
 if __name__ == "__main__":
