@@ -37,7 +37,7 @@ def tweet( twitter, *args, **kwargs ):
     global dry_run
     if dry_run == True:
         print( 'dry_run tweet: ' + kwargs['status'] )
-        return 0
+        return dict( id=0 )
     else:
         return twitter.update_status( *args, **kwargs )
 
@@ -65,7 +65,7 @@ def tweet_setup( argv ):
     global dry_run
 
     if dry_run == True:
-        return 0
+        return dict( id=0 )
 
     # https://www.tutorialspoint.com/python3/python_command_line_arguments.htm
     try:
@@ -103,7 +103,7 @@ def tweet_setup( argv ):
     return twitter
 
 def reply_survey( previous_tweet ):
-    mention = previous_tweet['user']['screen_name']
+    #mention = previous_tweet['user']['screen_name']
     message = '[SURVEY] What info do you want to see here? Voter-reg dates? Primaries? Anything from this list?: https://github.com/democrats/data/tree/master/election-calendar/2018'
     return message
 
