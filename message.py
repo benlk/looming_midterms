@@ -43,6 +43,7 @@ def tweet( twitter, *args, **kwargs ):
 
 def maybe_dry_run( argv ):
     opts, args = getopt.getopt( argv, '', ['dry_run','profile='] )
+    dry_run = False
 
     for opt, arg in opts:
         if opt == '--dry_run':
