@@ -37,7 +37,7 @@ def tweet( twitter, *args, **kwargs ):
     global dry_run
     if dry_run == True:
         print( 'dry_run tweet: ' + kwargs['status'] )
-        return dict( id=0 )
+        return dummy_tweet_setup()
     else:
         return twitter.update_status( *args, **kwargs )
 
@@ -57,6 +57,9 @@ def countdown():
     difference = ( dday - today )
     return "{0} days until the 2018 midterm elections.".format( difference.days )
 
+def dummy_tweet_setup():
+    return dict( id=0 )
+
 def tweet_setup( argv ):
     '''
     returns a Twython twitter object
@@ -66,7 +69,7 @@ def tweet_setup( argv ):
     global dry_run
 
     if dry_run == True:
-        return dict( id=0 )
+        return dummy_tweet_setup()
 
     # https://www.tutorialspoint.com/python3/python_command_line_arguments.htm
     try:
