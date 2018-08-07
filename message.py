@@ -24,7 +24,7 @@ def main( argv ):
     countdown_tweet = tweet( twitter, status=countdown_message )
 
     # Survey tweet
-    reply_tweet = tweet( twitter, status=reply_survey( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+    # reply_tweet = tweet( twitter, status=reply_survey( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
 
     # is today a tuesday and is today a voting day?
     #reply_tweet = tweet( twitter, status=reply_tuesday_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
