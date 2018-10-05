@@ -23,11 +23,8 @@ def main( argv ):
     # countdown tweet
     countdown_tweet = tweet( twitter, status=countdown_message )
 
-    # Survey tweet
-    # reply_tweet = tweet( twitter, status=reply_survey( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
-
-    # is today a tuesday and is today a voting day?
-    #reply_tweet = tweet( twitter, status=reply_tuesday_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+    # check your registration
+    reply_tweet = tweet( twitter, status=reply_registration_check( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
 
 def tweet( twitter, *args, **kwargs ):
     """
@@ -120,6 +117,13 @@ def reply_tuesday_voting( previous_tweet ):
     - getting a list of things today, and t
     """
     message = ''
+    return message
+
+def reply_registration_check( previous_tweet ):
+    """
+    Prompts people to check their voter registration at vote.gov
+    """
+    message = 'Are you registered to vote? You registered, but you want to check? Visit https://vote.gov/ today!'
     return message
 
 if __name__ == "__main__":
