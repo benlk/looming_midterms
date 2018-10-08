@@ -123,7 +123,7 @@ def reply_registration_check( previous_tweet ):
     """
     Prompts people to check their voter registration at vote.gov
     """
-    message = "Are you registered to vote? You registered before, but you want to make sure you're still registered? Visit https://vote.gov/ or https://www.vote.org/ today!"
+    message = "Make sure that you are registered to vote, today! Visit https://vote.gov/ or https://www.vote.org/ today! Or do this: https://twitter.com/azalben/status/1049076029132886016"
     return message
 
 if __name__ == "__main__":
