@@ -21,7 +21,9 @@ touch /tmp/looming_midterm.lock
 # t needs the full path to the trc, not ~, although . works.
 cd ~/looming_midterm/
 
-# using /usr/local/bin/t because this isn't working otherwise
-countdown=$(./message.sh | xargs -0 -I {} /usr/local/bin/t update --profile=./looming_midterm.trc "{}")
+# python3 venv on redbird
+source ./venv/bin/activate
+
+countdown=$( python3 ./message.py --profile=./looming_midterm.trc )
 
 rm /tmp/looming_midterm.lock
