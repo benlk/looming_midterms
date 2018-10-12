@@ -24,7 +24,7 @@ def main( argv ):
     countdown_tweet = tweet( twitter, status=countdown_message )
 
     # check your registration
-    reply_tweet = tweet( twitter, status=reply_registration_check( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+    reply_tweet = tweet( twitter, status=reply_early_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
 
 def tweet( twitter, *args, **kwargs ):
     """
@@ -52,7 +52,13 @@ def countdown():
     today = datetime.date.today()
     dday = datetime.date( 2018, 11, 6 )
     difference = ( dday - today )
-    return "{0} days until the 2018 midterm elections.".format( difference.days )
+    if difference > 0:
+        return "{0} days until the 2018 midterm elections.".format( difference.days )
+    elif difference = 0:
+        return "Go vote today if you haven't already. Help someone you know get to the polls. Follow @Electionland and your local news orgs for ongoing coverage all day long, and help reporters out by donating or purchasing a subscription."
+    else:
+        raise SystemExit
+    
 
 def dummy_tweet_setup():
     return dict( id=0 )
@@ -125,6 +131,12 @@ def reply_registration_check( previous_tweet ):
     """
     message = "Make sure that you are registered to vote, today! Visit https://vote.gov/ or https://www.vote.org/ today! Or do this: https://twitter.com/azalben/status/1049076029132886016"
     return message
+
+def reply_early_voting( previous_tweet ):
+    """
+    explain early voting rules
+    """
+    message = "Did you know many states allow early voting or voting by mail? If you can't make it to the polls on Tuesday, November 6, you have options. Read more: https://www.usa.gov/absentee-voting"
 
 if __name__ == "__main__":
     # execute only if run as a script
