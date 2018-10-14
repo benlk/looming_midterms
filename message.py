@@ -54,7 +54,7 @@ def countdown():
     difference = ( dday - today )
     if difference > 0:
         return "{0} days until the 2018 midterm elections.".format( difference.days )
-    elif difference = 0:
+    elif difference == 0:
         return "Go vote today if you haven't already. Help someone you know get to the polls. Follow @Electionland and your local news orgs for ongoing coverage all day long, and help reporters out by donating or purchasing a subscription."
     else:
         raise SystemExit
