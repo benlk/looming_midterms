@@ -52,9 +52,10 @@ def countdown():
     today = datetime.date.today()
     dday = datetime.date( 2018, 11, 6 )
     difference = ( dday - today )
-    if difference > 0:
+    timedelta_zero = datetime.timedelta(minutes=0)
+    if difference > timedelta_zero:
         return "{0} days until the 2018 midterm elections.".format( difference.days )
-    elif difference == 0:
+    elif difference == timedelta(zero):
         return "Go vote today if you haven't already. Help someone you know get to the polls. Follow @Electionland and your local news orgs for ongoing coverage all day long, and help reporters out by donating or purchasing a subscription."
     else:
         raise SystemExit
@@ -137,6 +138,7 @@ def reply_early_voting( previous_tweet ):
     explain early voting rules
     """
     message = "Did you know many states allow early voting or voting by mail? If you can't make it to the polls on Tuesday, November 6, you have options. Read more: https://www.usa.gov/absentee-voting"
+    return message
 
 if __name__ == "__main__":
     # execute only if run as a script
