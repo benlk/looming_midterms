@@ -55,7 +55,7 @@ def countdown():
     timedelta_zero = datetime.timedelta(minutes=0)
     if difference > timedelta_zero:
         return "{0} days until the 2018 midterm elections.".format( difference.days )
-    elif difference == timedelta(zero):
+    elif difference == datetime.timedelta(days=0):
         return "Go vote today if you haven't already. Help someone you know get to the polls. Follow @Electionland and your local news orgs for ongoing coverage all day long, and help reporters out by donating or purchasing a subscription."
     else:
         raise SystemExit
