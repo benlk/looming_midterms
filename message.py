@@ -24,7 +24,10 @@ def main( argv ):
     countdown_tweet = tweet( twitter, status=countdown_message )
 
     # check your registration
-    reply_tweet = tweet( twitter, status=reply_early_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+    # reply_tweet = tweet( twitter, status=reply_early_voting( countdown_tweet ), in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
+
+    # Star Wars: Rogue One gif
+    reply_tweet = tweet( twitter, status="https://twitter.com/FreelanceWars/status/1059810648354418688", in_reply_to_status_id = countdown_tweet['id'], auto_populate_reply_metadata=True )
 
 def tweet( twitter, *args, **kwargs ):
     """
